@@ -5,27 +5,27 @@
 [general]
 name=AWD
 qgisMinimumVersion=3.0
-description=Automatic waterfall detector
+description=Automatic waterfalls detector
 version=0.1
 author=Guilherme Alexsander Pereira
 email=guialexs.dev@gmail.com
 
-about=An automatic waterfall detector.
+about=An automatic waterfalls detector.
 
-tracker=http://bugs
-repository=http://repo
+tracker=https://github.com/guialexsdev/awd/issues
+repository=https://github.com/guialexsdev/awd
 # End of mandatory metadata
 
 # Recommended items:
 
-hasProcessingProvider=no
+hasProcessingProvider=yes
 # Uncomment the following line and add your changelog:
 # changelog=
 
 # Tags are comma separated with spaces allowed
-tags=python
+tags=waterfall,detect,fuzzy,water
 
-homepage=http://homepage
+homepage=https://github.com/guialexsdev/awd
 category=Plugins
 icon=icon.png
 # experimental flag

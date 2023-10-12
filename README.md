@@ -1,4 +1,4 @@
-# AWD - Automatic Waterfall Detector - A plugin for QGis
+# AWD - Automatic Waterfalls Detector - A plugin for QGis
 
 ## Requirements and dependencies
 
