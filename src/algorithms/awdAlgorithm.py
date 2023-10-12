@@ -1,11 +1,9 @@
 import processing
-import math
-from qgis.core import QgsProcessing, NULL, QgsProcessingParameterNumber, QgsProcessingParameterDefinition, QgsExpression
+from qgis.core import QgsProcessing, QgsProcessingParameterNumber, QgsProcessingParameterDefinition
 from qgis.core import QgsProcessingAlgorithm
 from qgis.core import QgsProcessingMultiStepFeedback
 from qgis.core import QgsProcessingParameterFeatureSink
 from qgis.core import QgsProcessingParameterRasterLayer
-from ..utils.logUtils import info
 from .awdPostProcessing import AWDPostProcessing
 
 class AWDAlgorithm(QgsProcessingAlgorithm):
@@ -445,7 +443,7 @@ class AWDAlgorithm(QgsProcessingAlgorithm):
         <h3>DEM</h3>
         It is recommended to use a raster with resolution of 30m or less. Copernicus 30m is a good choice.
         <h3>Flow Accumulation</h3>
-        Raster containing drainages. <b>Accumulation unit must be in Number of Cells</b>. Recommended flow: Breaching Algorithm + Fill Sinks + Flow Accumulation (D8). For breaching, the algorithm implemented by John B. Lindsay is highly recommended and available in the WhiteBoxTools plugin.
+        Raster containing drainages. <b>Accumulation unit must be in Number of Cells</b>. Recommended flow: Breaching Algorithm + Fill Sinks + Flow Accumulation (D8). The breaching algorithm implemented by John B. Lindsay is highly recommended and available in the WhiteBoxTools plugin.
         <h3>Minimum Flow Accumulation</h3>
         Minimum accumulation (in number of cells) that a drainage must have to be considered a river or stream eligible for analysis.
         <h3>Minimum Slope</h3>
@@ -453,5 +451,6 @@ class AWDAlgorithm(QgsProcessingAlgorithm):
         <h3>Alpha Cut</h3>
         All detections with <b>m_value</b> below <b>Alpha Cut</b> will be discarded.
         <br />
-        Visit <a href="https://github.com/guialexsdev/webmap-utilities">https://github.com/guialexsdev/awd</a> to learn more!
+        Visit <a href="https://github.com/guialexsdev/awd">https://github.com/guialexsdev/awd</a> to learn more!
         """
+    

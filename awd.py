@@ -106,7 +106,9 @@ class AWD:
 
         return action
 
-    def initGui(self):
+    def initGui(self):        
+        self.initProcessing()
+
         icon_path = ':/plugins/awd/icon.png'
         self.add_action(
             icon_path,
