@@ -3,6 +3,7 @@
 ## Requirements and dependencies
 
 - Minimum QGis version: 3.0
+- Dependency: QuickOSM plugin must be installed too
 
 ## Quick Tutorial
 
@@ -16,7 +17,7 @@ To use the plugin, go to Plugins -> AWD -> Detect Waterfalls or find it in the P
 
 ### Tutorial
 
-This algorithm detects waterfalls using a fuzzy logic. All features of the resulting vector layer will contain an attribute called m_value, which varies between 0 and 1. The higher this value, the greater the certainty that the detection is correct. Detections with m_value below 0.3 should be discarded (but this can be controlled via the Alpha Cut field).
+This algorithm detects waterfalls using a fuzzy logic. OSM data is used to confirm some of these detections. All features of the resulting vector layer will contain an attribute called m_value, which varies between 0 and 1. The higher this value, the greater the certainty that the detection is correct. Detections with m_value below 0.3 should be discarded (but this can be controlled via the Alpha Cut field).
 
 ### Input parameters
 #### DEM
