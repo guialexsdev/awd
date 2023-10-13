@@ -130,7 +130,7 @@ class AWDAlgorithm(QgsProcessingAlgorithm):
             'BAND_E': None,
             'BAND_F': None,
             'EXTRA': '',
-            'FORMULA': f"logical_and(A > {parameters['MINIMUM_SLOPE']}, B > {parameters['MINIMUM_FLOW_ACCUMULATION']})",
+            'FORMULA': f"logical_and(A >= 10, B >= 1000)",
             'INPUT_A': outputs['Slope']['OUTPUT'],
             'INPUT_B': parameters['FLOW_ACCUMULATION'],
             'INPUT_C': None,
@@ -383,7 +383,7 @@ class AWDAlgorithm(QgsProcessingAlgorithm):
             'FIELD_NAME': 'm_value',
             'FIELD_PRECISION': 0,
             'FIELD_TYPE': 0,  # Decimal (double)
-            'FORMULA': 'fuzzifyFeature("flowacc", "slope", "error", "osm_id" IS NOT NULL)',
+            'FORMULA': f'fuzzifyFeature("flowacc", "slope", "error", {parameters["MINIMUM_FLOW_ACCUMULATION"]}, {parameters["MINIMUM_SLOPE"]}, "osm_id" IS NOT NULL)',
             'INPUT': outputs['AddOsmId']['OUTPUT'],
             'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
         }
@@ -438,6 +438,7 @@ class AWDAlgorithm(QgsProcessingAlgorithm):
 
     def shortHelpString(self):
         return """
+        <b>IMPORTANT: QuickOSM plugin must be installed before executing this tool!</b>
         This algorithm detects waterfalls using a fuzzy approach. All detections of the resulting vector layer will contain an attribute called <b>m_value</b> ranging from 0 to 1. The higher this value, the greater the certainty that the detection is correct. Detections with m_value below 0.3 in general should be discarded (but this can be controlled via the Alpha Cut field).
         <h2>Input parameters</h2>
         <h3>DEM</h3>
@@ -447,7 +448,7 @@ class AWDAlgorithm(QgsProcessingAlgorithm):
         <h3>Minimum Flow Accumulation</h3>
         Minimum accumulation (in number of cells) that a drainage must have to be considered a river or stream eligible for analysis.
         <h3>Minimum Slope</h3>
-        Minimum slope (in degrees) that a potential waterfall must have to be considered valid. Remember that several waterfalls can be considered small objects and therefore can contain significant errors in slope measurement. It is recommended to leave this value below 40, preferably between 10 and 20.
+        Minimum slope (in degrees) that a potential waterfall must have to be considered valid. Remember that several waterfalls can be considered small objects and therefore can contain significant errors in slope measurement. It is recommended to leave this value between 10 and 20.
         <h3>Alpha Cut</h3>
         All detections with <b>m_value</b> below <b>Alpha Cut</b> will be discarded.
         <br />

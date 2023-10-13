@@ -10,7 +10,7 @@ version=0.1
 author=Guilherme Alexsander Pereira
 email=guialexs.dev@gmail.com
 
-about=An automatic waterfalls detector.
+about=An automatic waterfalls detector. Important: The QuickOSM plugin must be installed too!
 
 tracker=https://github.com/guialexsdev/awd/issues
 repository=https://github.com/guialexsdev/awd
@@ -37,7 +37,7 @@ deprecated=False
 # Since QGIS 3.8, a comma separated list of plugins to be installed
 # (or upgraded) can be specified.
 # Check the documentation for more information.
-# plugin_dependencies=
+plugin_dependencies=QuickOSM
 
 Category of the plugin: Raster, Vector, Database or Web
 # category=

@@ -30,13 +30,13 @@ def fuzzyPieceWiseIncreasing(x,a,b):
         return 1
     
 @qgsfunction(args='auto', group='AWD Fuzzy')
-def fuzzifyFeature(flow, slope, error, osmIdIsPresent, feature, parent):
+def fuzzifyFeature(flow, slope, error, minimumFlow, minmumSlope, osmIdIsPresent, feature, parent):
     if osmIdIsPresent:
         return 1
-        
-    flowGood  = fuzzyPieceWise(flow, 5000, 10000, 200000, 1000000)
-    slopeGood = fuzzyPieceWiseIncreasing(slope, 10, 20)
-    errorGood = fuzzyPieceWiseDecreasing(error, 15, 40)
+    
+    flowGood  = fuzzyPieceWise(flow, minimumFlow, 10000, 200000, 1000000)
+    slopeGood = fuzzyPieceWiseIncreasing(slope, minmumSlope, 25)
+    errorGood = fuzzyPieceWiseDecreasing(error, 15, 50)
     
     good = max(
         min(errorGood, slopeGood, flowGood),
