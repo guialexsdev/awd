@@ -6,7 +6,7 @@
 name=AWD
 qgisMinimumVersion=3.0
 description=Automatic waterfalls detector
-version=0.1
+version=0.2
 author=Guilherme Alexsander Pereira
 email=guialexs.dev@gmail.com
 
